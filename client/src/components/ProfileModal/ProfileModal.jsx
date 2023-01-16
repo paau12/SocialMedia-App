@@ -22,30 +22,30 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0]
-      event.target.name === 'profilePicture'
+      event.target.name === 'profileImage'
         ? setProfileImage(img)
         : setCoverImage(img)
     }
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let UserData = formData;
     if (profileImage) {
-      const data = new FormData()
-      const fileName = Date.now() + profileImage.name
-      data.append('name', fileName)
-      data.append('file', profileImage)
-      UserData.profilePicture = fileName
+      const data = new FormData();
+      const fileName = Date.now() + profileImage.name;
+      data.append('name', fileName);
+      data.append('file', profileImage);
+      UserData.profilePicture = fileName;
       try {
-        dispatch(uploadImage(data))
+        dispatch(uploadImage(data));
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
     if (coverImage) {
-      const data = new FormData()
-      const fileName = Date.now() + coverImage.name
+      const data = new FormData();
+      const fileName = Date.now() + coverImage.name; 
       data.append('name', fileName)
       data.append('file', coverImage)
       UserData.coverPicture = fileName

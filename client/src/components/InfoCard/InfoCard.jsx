@@ -17,7 +17,7 @@ const InfoCard = () => {
   const { user } = useSelector((state) => state.authReducer.authData)
 
   useEffect(() => {
-    const fetchProfileUser = async () => {
+    const fetchProfileUser = async() => {
       if (profileUserId === user._id) {
         setProfileUser(user)
         console.log(user)
@@ -27,7 +27,7 @@ const InfoCard = () => {
         console.log(profileUser)
       }
     }
-    fetchProfileUser()
+    fetchProfileUser();
   }, [user]);
 
   const handleLogOut = () => {
@@ -36,7 +36,7 @@ const InfoCard = () => {
   return (
     <div className="InfoCard">
       <div className="infoHead">
-        <h4>Your Info</h4>
+        <h4>Profile Info</h4>
         {user._id === profileUserId ? (
           <div>
             <UilPen
@@ -61,6 +61,14 @@ const InfoCard = () => {
         </span>
         &nbsp;
         <span>{profileUser.livesIn}</span>
+      </div>
+
+      <div className="info">
+        <span>
+          <b>Country</b>
+        </span>
+        &nbsp;
+        <span>{profileUser.country}</span>
       </div>
 
       <div className="info">

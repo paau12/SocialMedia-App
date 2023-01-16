@@ -8,7 +8,7 @@ import {useParams} from 'react-router-dom'
 const Posts = () => { 
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.authReducer.authData)
-  const { posts, loading } = useSelector((state) => state.postReducer)
+  let { posts, loading } = useSelector((state) => state.postReducer)
   const params = useParams()
 
   useEffect(() => {

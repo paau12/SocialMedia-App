@@ -11,7 +11,6 @@ ReactDOM.render(
     <Routes>
       <Route path='*' element= {<App/>}/>
     </Routes>
-      <App />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
